@@ -3,60 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vandung's Bio</title>
+    <title>Vandung's Bio</title>
     <style>
-        /* ... (giữ nguyên phần CSS) ... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .bio-text {
+            text-align: center;
+            margin: 30px 0;
+            padding: 0 20px;
+        }
+
+        .social-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .music-player {
+            margin: 40px auto;
+            width: 300px;
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <img src="avatar.jpg" alt="Vandung's Avatar" class="avatar">
+            <img src="https://raw.githubusercontent.com/vandung2009/vandung2009.github.io/refs/heads/main/avatar.jpg" alt="Vandung's Avatar" class="avatar">
             <h1>VANDUNG</h1>
-            <p>Chào 😊</p>
+            <p>✨ Developer & Content Creator ✨</p>
         </header>
 
-        <!-- Trình phát nhạc với autoplay -->
-        <audio controls class="music-player" id="myAudio" loop>
-            <source src="music.mp3" type="audio/mpeg">
+        <audio controls class="music-player" id="mainAudio">
+            <source src="https://github.com/vandung2009/vandung2009.github.io/raw/refs/heads/main/music.mp3" type="audio/mpeg">
             Trình duyệt của bạn không hỗ trợ phát nhạc
         </audio>
 
         <div class="bio-text">
-            <p>Xin chào! Tôi là vandung</p>
+            <p>Xin chào! Tôi là Vandung - người đam mê công nghệ và sáng tạo nội dung digital.</p>
+            <p>Chuyên môn: Web Development, Blockchain & UI/UX Design</p>
         </div>
 
         <ul class="social-links">
-            <!-- ... (giữ nguyên social links) ... -->
+            <li><a href="#" target="_blank">GitHub</a></li>
+            <li><a href="#" target="_blank">Facebook</a></li>
+            <li><a href="#" target="_blank">Instagram</a></li>
+            <li><a href="#" target="_blank">Portfolio</a></li>
         </ul>
 
         <footer>
-            <p>© 2024 vandung. All rights reserved.</p>
+            <p>📧 Contact: vandung@example.com</p>
+            <p>© 2024 Vandung. All rights reserved.</p>
         </footer>
     </div>
 
     <script>
-        // Thêm JavaScript để xử lý autoplay
-        window.onload = function() {
-            const audio = document.getElementById('myAudio');
-            
-            // Thử bắt đầu phát nhạc tự động
-            const playPromise = audio.play();
-            
-            // Xử lý trường hợp trình duyệt chặn autoplay
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.log('Autoplay bị chặn, cần tương tác người dùng');
-                    // Thêm nút play thủ công nếu cần
-                });
-            }
-        };
+        // Xử lý autoplay nhạc sau khi click
+        document.addEventListener('click', function() {
+            const audio = document.getElementById('mainAudio');
+            audio.play().catch(error => {
+                console.log('Cần tương tác người dùng để phát nhạc');
+            });
+        });
     </script>
 </body>
 </html>
-
-<!-- Thêm nút play thủ công -->
-<button onclick="document.getElementById('myAudio').play()" 
-        style="display: block; margin: 20px auto; padding: 10px 20px;">
-    Bấm để nghe nhạc
-</button>
