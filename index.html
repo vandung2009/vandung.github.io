@@ -31,6 +31,15 @@
             margin-bottom: 30px;
         }
 
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid #fff;
+            object-fit: cover;
+        }
+
         h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
@@ -58,6 +67,11 @@
             color: #cccccc;
         }
 
+        .music-player {
+            margin: 30px 0;
+            width: 100%;
+        }
+
         footer {
             text-align: center;
             margin-top: 50px;
@@ -69,12 +83,22 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1>xyzvandung</h1>
+            <!-- Thay thế avatar.jpg bằng đường dẫn ảnh của bạn -->
+            <img src="avatar.jpg" alt="Vandung's Avatar" class="avatar">
+            <h1>VANDUNG</h1>
             <p>Developer & Content Creator</p>
         </header>
 
+        <!-- Trình phát nhạc -->
+        <audio controls class="music-player">
+            <!-- Thay thế music.mp3 bằng đường dẫn file nhạc của bạn -->
+            <source src="music.mp3" type="audio/mpeg">
+            Trình duyệt của bạn không hỗ trợ phát nhạc
+        </audio>
+
         <div class="bio-text">
-            <p>Xin chào! Tôi là Vandung - 
+            <p>Xin chào! Tôi là Vandung - người đam mê công nghệ và sáng tạo nội dung.</p>
+            <p>Chuyên môn chính: Lập trình web, phát triển ứng dụng và blockchain.</p>
         </div>
 
         <ul class="social-links">
